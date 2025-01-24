@@ -49,9 +49,9 @@ async fn main() {
             ws.on_upgrade(move |socket| handle_connection(socket, state))
         });
 
-    println!("Server in ascolto su http://127.0.0.1:9001/ws");
+    println!("Server in ascolto su http://0.0.0.0:9001/ws");
     warp::serve(ws_route)
-        .run(([127, 0, 0, 1], 9001))
+        .run(([0, 0, 0, 0], 9001))
         .await;
 }
 
